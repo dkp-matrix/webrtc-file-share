@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Secure WebRTC File Sharing</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h2>🔒 Secure WebRTC File Sharing</h2>
+    <p id="connectionStatus">⚪ Not Connected</p>
+
+    <button id="connect">🔗 Connect to Peer</button>
+    <input type="file" id="fileInput" />
+    <button id="sendFile" disabled>📤 Send File</button>
+    <button id="pause" disabled>⏸ Pause</button>
+    <button id="resume" disabled>▶ Resume</button>
+
+    <progress id="progressBar" value="0" max="100"></progress>
+    <p id="status"></p>
+
+    <script src="script.js"></script>
+  </body>
+</html>
