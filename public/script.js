@@ -1,4 +1,14 @@
-const socket = new WebSocket("ws://localhost:3000");
+const currentHost = window.location.host;
+const isProduction = !currentHost.includes("localhost") && !currentHost.includes("127.0.0.1");
+
+// Use secure WebSocket (wss://) for HTTPS environments
+const protocol = window.location.protocol === "https:" ? "wss:" : "ws:";
+
+// For production/preview, use the same host for WebSocket (deployed server)
+// For local development, default to localhost:3000
+const url = (isProduction ? `${protocol}//${currentHost}` : `ws://${window.location.hostname}:3000`);
+
+const socket = new WebSocket(url);
 let peerConnection, dataChannel, encryptionKey, decryptionKey;
 let offset = 0,
   paused = false;
